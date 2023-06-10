@@ -2,36 +2,31 @@ package org.example;
 
 
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class OrderingTest {
     private WebDriver driver;
-    private String nameValue;//имя
-    private String surNameValue;//фамилия
-    private String adressValue;//адрес доставки
-    private String metroValue;//метро
-    private String phoneValue;//телефон
-    private String dateValue;//дата привоза самоката
-    private String periodValue;//срок аренды
-    private String color;//цвет самоката
-    private String commentValue;//комментарий
+    private final String nameValue;//имя
+    private final String surNameValue;//фамилия
+    private final String adressValue;//адрес доставки
+    private final String metroValue;//метро
+    private final String phoneValue;//телефон
+    private final String dateValue;//дата привоза самоката
+    private final String periodValue;//срок аренды
+    private final String color;//цвет самоката
+    private final String commentValue;//комментарий
 
     public OrderingTest(String nameValue, String surNameValue, String adressValue, String metroValue, String phoneValue, String dateValue, String periodValue, String color, String commentValue) {
         this.nameValue = nameValue;
@@ -53,7 +48,7 @@ public class OrderingTest {
         };
     }
 
-    @Before
+   // @Before
     public void startUp() {
         WebDriverManager.firefoxdriver().setup();
         //WebDriverManager.chromedriver().setup();
@@ -61,8 +56,7 @@ public class OrderingTest {
 
     @Test
     public void OrderSamokat() {
-
-
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\yrik0\\fireFoxdriver_win32\\geckodriver.exe");
         driver = new FirefoxDriver();
         //driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -89,7 +83,7 @@ public class OrderingTest {
 
     }
 
-    //@After
+    @After
     public void tearDown() {
         driver.quit();
     }
