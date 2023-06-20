@@ -9,7 +9,7 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
@@ -54,7 +54,6 @@ public class OrderingTest {
      @Before
     public void startUp() {
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\yrik0\\fireFoxdriver_win32\\geckodriver.exe");
-       // WebDriverManager.firefoxdriver().setup();
         //WebDriverManager.chromedriver().setup();
     }
 
